@@ -27,7 +27,9 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox( height: 80 ),
                 // Icon Banner
                 const Icon( 
+                  //icono de unicio de sesion
                   Icons.assignment_turned_in_rounded, 
+                  //Icons.factory_outlined, 
                   color: Colors.white,
                   size: 110,
                 ),
@@ -111,7 +113,7 @@ class _LoginForm extends ConsumerWidget {
             height: 60,
             child: CustomFilledButton(
               text: 'Ingresar',
-              buttonColor: Colors.black,
+              buttonColor:const Color.fromRGBO(9, 40, 19, 1),
               onPressed: loginForm.isPosting
                 ? null 
                 : ref.read(loginFormProvider.notifier).onFormSubmit

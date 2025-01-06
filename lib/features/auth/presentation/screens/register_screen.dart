@@ -82,7 +82,13 @@ class _RegisterForm extends StatelessWidget {
           // const SizedBox( height: 30 ),
 
           const CustomTextFormField(
-            label: 'Nombre completo',
+            label: 'Nombre y Apellido',
+            keyboardType: TextInputType.emailAddress,
+          ),
+          const SizedBox( height: 30 ),
+
+          const CustomTextFormField(
+            label: 'Cargo',
             keyboardType: TextInputType.emailAddress,
           ),
           const SizedBox( height: 30 ),
@@ -112,7 +118,7 @@ class _RegisterForm extends StatelessWidget {
             height: 60,
             child: CustomFilledButton(
               text: 'Crear',
-              buttonColor: Colors.black,
+              buttonColor:const  Color.fromRGBO(9, 40, 19, 1),
               onPressed: (){
 
               },
