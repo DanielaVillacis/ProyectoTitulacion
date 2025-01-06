@@ -72,9 +72,10 @@ class AuthNotifier extends StateNotifier<AuthState> {
       logout( e.message );
     } catch (e){
       logout(e.toString());
-      print(e);
-      
+          
     }
+
+    
 
     // final user = await authRepository.login(email, password);
     // state =state.copyWith(user: user, authStatus: AuthStatus.authenticated)

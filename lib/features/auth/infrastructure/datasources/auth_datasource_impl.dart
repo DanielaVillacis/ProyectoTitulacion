@@ -32,6 +32,9 @@ class AuthDataSourceImpl extends AuthDataSource {
       if( e.response?.statusCode == 401 ){
          throw CustomError('Token incorrecto');
       }
+      if( e.response?.statusCode == 500 ){
+         throw CustomError('Token incorrecto');
+      }
       throw Exception();
     } catch (e) {
       throw Exception();
