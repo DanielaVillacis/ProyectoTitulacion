@@ -5,7 +5,7 @@ class User {
   final String cargo;
   final String? email;
   final String usuario;
- final String? token; //token puede ser nulo para usuarios que se registran
+ final String token; //token puede ser nulo para usuarios que se registran
 
   User({
     required this.id,
@@ -14,7 +14,7 @@ class User {
     required this.cargo,
     this.email,
     required this.usuario,
-    this.token,
+    required this.token,
   });
 
    bool get isAdmin {

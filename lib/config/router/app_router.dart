@@ -68,10 +68,10 @@ final goRouterProvider = Provider((ref) {
       ),
 
       ///* Product Routes
-      // GoRoute(
-      //   path: '/',
-      //   builder: (context, state) => const ProductsScreen(),
-      // ),
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const HomeScreen(),
+      ),
       // GoRoute(
       //   path: '/product/:id', // /product/new
       //   builder: (context, state) => ProductScreen(
