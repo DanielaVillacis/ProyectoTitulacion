@@ -27,9 +27,9 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox( height: 80 ),
                 // Icon Banner
                 const Icon( 
-                  Icons.production_quantity_limits_rounded, 
+                  Icons.assignment_turned_in_rounded, 
                   color: Colors.white,
-                  size: 100,
+                  size: 110,
                 ),
                 const SizedBox( height: 80 ),
     
@@ -81,15 +81,15 @@ class _LoginForm extends ConsumerWidget {
       child: Column(
         children: [
           const SizedBox( height: 50 ),
-          Text('Login', style: textStyles.titleLarge ),
+          Text('Inicio de Sesión', style: textStyles.titleLarge ),
           const SizedBox( height: 90 ),
 
           CustomTextFormField(
-            label: 'Correo',
-            keyboardType: TextInputType.emailAddress,
-            onChanged: ref.read(loginFormProvider.notifier).onEmailChange,
+            label: 'Usuario',
+            keyboardType: TextInputType.text,
+            onChanged: ref.read(loginFormProvider.notifier).onUsuarioChange,
             errorMessage: loginForm.isFormPosted ?
-               loginForm.email.errorMessage 
+               loginForm.usuario.errorMessage 
                : null,
           ),
           const SizedBox( height: 30 ),
@@ -100,7 +100,7 @@ class _LoginForm extends ConsumerWidget {
             onChanged: ref.read(loginFormProvider.notifier).onPasswordChanged,
             onFieldSubmitted: ( _ ) => ref.read(loginFormProvider.notifier).onFormSubmit(),
             errorMessage: loginForm.isFormPosted ?
-               loginForm.password.errorMessage 
+               loginForm.contrasena.errorMessage 
                : null,
           ),
     

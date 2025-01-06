@@ -61,17 +61,19 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
   
 
-  Future<void> loginUser( String email, String password ) async {
+  Future<void> loginUser( String usuario, String contrasena ) async {
     await Future.delayed(const Duration(milliseconds: 500));
 
     try {
-      final user = await authRepository.login(email, password);
+      final user = await authRepository.login(usuario, contrasena);
       _setLoggedUser( user );
 
     } on CustomError catch (e) {
       logout( e.message );
     } catch (e){
-      logout( 'Error no controlado' );
+      logout(e.toString());
+      print(e);
+      
     }
 
     // final user = await authRepository.login(email, password);
@@ -79,8 +81,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   }
 
-  void registerUser( String email, String password ) async {
-    
+  void registerUser( String usuario, String password ) async {
+    //TODO: IMPLEMENTAR
   }
 
   void checkAuthStatus() async {

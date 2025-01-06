@@ -16,7 +16,7 @@ class AuthDataSourceImpl extends AuthDataSource {
     
     try {
       
-      final response = await dio.get('/auth/check-status',
+      final response = await dio.get('/WantUsuario/check-status',
         options: Options(
           headers: {
             'Authorization': 'Bearer $token'

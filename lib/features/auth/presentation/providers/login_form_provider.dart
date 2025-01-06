@@ -24,19 +24,19 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
     required this.loginUserCallback,
   }): super( LoginFormState() );
   
-  onEmailChange( String value ) {
-    final newEmail = Email.dirty(value);
+  onUsuarioChange( String value ) {
+    final newUsuario = Usuario.dirty(value);
     state = state.copyWith(
-      email: newEmail,
-      isValid: Formz.validate([ newEmail, state.password ])
+      usuario: newUsuario,
+      isValid: Formz.validate([ newUsuario, state.contrasena ])
     );
   }
 
   onPasswordChanged( String value ) {
-    final newPassword = Password.dirty(value);
+    final newContrasena = Password.dirty(value);
     state = state.copyWith(
-      password: newPassword,
-      isValid: Formz.validate([ newPassword, state.email ])
+      contrasena: newContrasena ,
+      isValid: Formz.validate([ newContrasena , state.usuario ])
     );
   }
 
@@ -47,21 +47,21 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
 
     state = state.copyWith(isPosting: true);
 
-    await loginUserCallback( state.email.value, state.password.value );
+    await loginUserCallback( state.usuario.value, state.contrasena.value );
 
     state = state.copyWith(isPosting: false);
   }
 
   _touchEveryField() {
 
-    final email    = Email.dirty(state.email.value);
-    final password = Password.dirty(state.password.value);
+    final usuario    = Usuario.dirty(state.usuario.value);
+    final contrasena = Password.dirty(state.contrasena.value);
 
     state = state.copyWith(
       isFormPosted: true,
-      email: email,
-      password: password,
-      isValid: Formz.validate([ email, password ])
+      usuario: usuario,
+      contrasena: contrasena,
+      isValid: Formz.validate([ usuario, contrasena ])
     );
 
   }
@@ -75,29 +75,29 @@ class LoginFormState {
   final bool isPosting;
   final bool isFormPosted;
   final bool isValid;
-  final Email email;
-  final Password password;
+  final Usuario usuario;
+  final Password contrasena;
 
   LoginFormState({
     this.isPosting = false,
     this.isFormPosted = false,
     this.isValid = false,
-    this.email = const Email.pure(),
-    this.password = const Password.pure()
+    this.usuario = const Usuario.pure(),
+    this.contrasena = const Password.pure()
   });
 
   LoginFormState copyWith({
     bool? isPosting,
     bool? isFormPosted,
     bool? isValid,
-    Email? email,
-    Password? password,
+    Usuario? usuario,
+    Password? contrasena,
   }) => LoginFormState(
     isPosting: isPosting ?? this.isPosting,
     isFormPosted: isFormPosted ?? this.isFormPosted,
     isValid: isValid ?? this.isValid,
-    email: email ?? this.email,
-    password: password ?? this.password,
+    usuario: usuario ?? this.usuario,
+    contrasena: contrasena ?? this.contrasena,
   );
 
   @override
@@ -107,8 +107,8 @@ class LoginFormState {
     isPosting: $isPosting
     isFormPosted: $isFormPosted
     isValid: $isValid
-    email: $email
-    password: $password
+    usuario: $usuario
+    contrasena: $contrasena
 ''';
   }
 }
